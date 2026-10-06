@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Registration Form</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f2f6fa;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #123c69;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            color: #123c69;
+            font-size: 20px;
+            margin: 20px 0 15px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .row .form-group {
+            flex: 1;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 20px;
+        }
+
+        .radio-group label {
+            font-weight: normal;
+        }
+
+        .radio-group input {
+            width: auto;
+            margin-right: 5px;
+        }
+
+        .terms {
+            margin: 20px 0;
+        }
+
+        .terms input {
+            width: auto;
+            margin-right: 8px;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            background: #123c69;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0b2949;
+        }
+
+        @media (max-width: 600px) {
+            .row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Bank Registration Form</h1>
+
+    <form id="bankForm">
+
+        <h2>Personal Information</h2>
+
+        <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName"
+                   placeholder="Enter your full name" required>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="gender" value="male" required>
+                        Male
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" value="female">
+                        Female
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" value="other">
+                        Other
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email"
+                   placeholder="example@email.com" required>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Mobile Number</label>
+            <input type="tel" id="phone" name="phone"
+                   placeholder="Enter mobile number"
+                   pattern="[0-9]{10}" required>
+        </div>
+
+        <h2>Address</h2>
+
+        <div class="form-group">
+            <label for="address">Address</label>
+            <textarea id="address" name="address"
+                      rows="3"
+                      placeholder="Enter your address"
+                      required></textarea>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" required>
+            </div>
+
+            <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" id="state" name="state" required>
+            </div>
+
+            <div class="form-group">
+                <label for="pincode">PIN Code</label>
+                <input type="text" id="pincode" name="pincode"
+                       pattern="[0-9]{6}" required>
+            </div>
+        </div>
+
+        <h2>Account Information</h2>
+
+        <div class="form-group">
+            <label for="accountType">Account Type</label>
+            <select id="accountType" name="accountType" required>
+                <option value="">Select Account Type</option>
+                <option value="savings">Savings Account</option>
+                <option value="current">Current Account</option>
+                <option value="salary">Salary Account</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="occupation">Occupation</label>
+            <input type="text" id="occupation" name="occupation"
+                   placeholder="Enter occupation">
+        </div>
+
+        <div class="form-group">
+            <label for="idProof">ID Proof Type</label>
+            <select id="idProof" name="idProof" required>
+                <option value="">Select ID Proof</option>
+                <option value="passport">Passport</option>
+                <option value="driving-license">Driving License</option>
+                <option value="national-id">National ID</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+
+        <div class="terms">
+            <label>
+                <input type="checkbox" required>
+                I agree to the terms and conditions.
+            </label>
+        </div>
+
+        <button type="submit">Register Account</button>
+
+    </form>
+</div>
+
+<script>
+    document.getElementById("bankForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        alert("Registration submitted successfully! (Demo only)");
+
+        this.reset();
+    });
+</script>
+
+</body>
+</html>
